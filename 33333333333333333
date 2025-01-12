@@ -555,27 +555,13 @@ function OrionLib:MakeWindow(WindowConfig)
 		}),
 	}), "Second")
 
--- Create the label for the window name with specific colors for "Cold" and "Team X"
-	local ColdText = SetProps(MakeElement("TextLabel"), {
-		Text = "Cold",
-		TextColor3 = Color3.fromRGB(255, 255, 255), -- Biały kolor
-		Font = Enum.Font.FredokaOne,
-		TextSize = 20,
-		BackgroundTransparency = 1,
-		Position = UDim2.new(0, 25, 0, -24),
-		Size = UDim2.new(0, 50, 0, 20)
-	})
-
-	local TeamXText = SetProps(MakeElement("TextLabel"), {
-		Text = "Team X",
-		TextColor3 = Color3.fromRGB(255, 165, 0), -- Pomarańczowy kolor
-		Font = Enum.Font.FredokaOne,
-		TextSize = 20,
-		BackgroundTransparency = 1,
-		Position = UDim2.new(0, 75, 0, -24),
-		Size = UDim2.new(0, 100, 0, 20)
-	})
-
+local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
+    Size = UDim2.new(1, -30, 2, 0),
+    Position = UDim2.new(0, 25, 0, -24),
+    Font = Enum.Font.FredokaOne,
+    TextSize = 20,
+    TextColor3 = Color3.fromRGB(255, 105, 180) -- Jasny różowy kolor
+})
 	local WindowTopBarLine = AddThemeObject(SetProps(MakeElement("Frame"), {
 		Size = UDim2.new(1, 0, 0, 1),
 		Position = UDim2.new(0, 0, 1, -1)
