@@ -562,19 +562,11 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
     Position = UDim2.new(0, 25, 0, -24),
     Font = Enum.Font.FredokaOne,
     TextSize = 20,
-    -- Usunięto TextColor3, żeby nie nadpisywać koloru całego tekstu
+    TextColor3 = Color3.fromRGB(255, 255, 255), -- Kolor tekstu jako biały (domyślny)
+    RichText = true,  -- Włącz RichText
+    Text = "<font color='rgb(255, 105, 180)'>Różowy tekst</font> <font color='rgb(0, 255, 255)'>Niebieski tekst</font>" -- Używamy tagów <font color='rgb(R, G, B)'>tekst</font>
 })
 
--- Funkcja formatująca tekst, aby zmienić kolor na pomarańczowy dla "Sander" i zielony dla "Hub"
-local function FormatText(text)
-    -- Zmieniamy "Sander" na pomarańczowy i "Hub" na zielony
-    text = text:gsub("Sander", "<font color='#FFA500'>Sander</font>")  -- Pomarańczowy
-    text = text:gsub("Hub", "<font color='#00FF00'>Hub</font>")        -- Zielony
-    return text
-end
-
--- Użycie funkcji formatowania
-WindowName.Text = FormatText(WindowConfig.Name)
 
 
 	local WindowTopBarLine = AddThemeObject(SetProps(MakeElement("Frame"), {
