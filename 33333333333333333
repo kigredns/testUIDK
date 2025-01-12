@@ -562,6 +562,24 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
     TextSize = 20,
     TextColor3 = Color3.fromRGB(255, 105, 180) -- Jasny różowy kolor
 })
+
+-- Funkcja formatująca tekst, aby podzielić "Sander" i "Hub" na różne kolory
+local function FormatText(text)
+    local startPos, endPos
+    if text:find("Sander") then
+        startPos, endPos = text:find("Sander")
+        return text:sub(1, startPos - 1) .. "<font color='#FF0000'>" .. text:sub(startPos, endPos) .. "</font>" .. text:sub(endPos + 1)
+    elseif text:find("Hub") then
+        startPos, endPos = text:find("Hub")
+        return text:sub(1, startPos - 1) .. "<font color='#00FF00'>" .. text:sub(startPos, endPos) .. "</font>" .. text:sub(endPos + 1)
+    else
+        return text
+    end
+end
+
+-- Użycie funkcji formatowania
+WindowName.Text = FormatText(WindowConfig.Name)
+
 	local WindowTopBarLine = AddThemeObject(SetProps(MakeElement("Frame"), {
 		Size = UDim2.new(1, 0, 0, 1),
 		Position = UDim2.new(0, 0, 1, -1)
