@@ -12,7 +12,8 @@ Frame.Parent = ScreenGui
 Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Frame.BorderSizePixel = 0
-Frame.Position = UDim2.new(0.359559417, 0, 0.411347508, 0)
+Frame.AnchorPoint = Vector2.new(0.5, 0.5) -- Center anchor point
+Frame.Position = UDim2.new(0.5, 0, 0.5, 0) -- Centered position
 Frame.Size = UDim2.new(0, 356, 0, 100)
 
 TextLabel.Parent = Frame
