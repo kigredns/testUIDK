@@ -564,7 +564,7 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
     TextSize = 20,
     TextColor3 = Color3.fromRGB(255, 255, 255), -- Kolor tekstu jako biały (domyślny)
     RichText = true,  -- Włącz RichText
-    Text = "<font color='rgb(255, 105, 180)'>Różowy tekst</font> <font color='rgb(0, 255, 255)'>Niebieski tekst</font>" -- Używamy tagów <font color='rgb(R, G, B)'>tekst</font>
+    Text = "<font color='rgb(255, 105, 6)'>Nest</font> <font color='rgb(255, 255, 255)'>Hub</font>" -- Używamy tagów <font color='rgb(R, G, B)'>tekst</font>
 })
 
 
