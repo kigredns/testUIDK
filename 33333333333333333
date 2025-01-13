@@ -657,7 +657,7 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 	AddConnection(MinimizeBtn.MouseButton1Up, function()
 		if Minimized then
 			TweenService:Create(MainWindow, TweenInfo.new(0.5, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = UDim2.new(0, 615, 0, 344)}):Play()
-			MinimizeBtn.Ico.Image = "rbxassetid://7072719338"
+			MinimizeBtn.Ico.Image = "rbxassetid://7743869899"
 			wait(.02)
 			MainWindow.ClipsDescendants = false
 			WindowStuff.Visible = true
@@ -849,7 +849,7 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 				ButtonConfig = ButtonConfig or {}
 				ButtonConfig.Name = ButtonConfig.Name or "Button"
 				ButtonConfig.Callback = ButtonConfig.Callback or function() end
-				ButtonConfig.Icon = ButtonConfig.Icon or "rbxassetid://3944703587"
+				ButtonConfig.Icon = ButtonConfig.Icon or "rbxassetid://7734010488"
 
 				local Button = {}
 
