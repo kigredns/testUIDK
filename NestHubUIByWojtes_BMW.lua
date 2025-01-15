@@ -658,7 +658,7 @@ end)
 OpenCloseButton.InputBegan:Connect(function(input)
     if input.UserInputType == Enum.UserInputType.MouseButton1 and not dragging then
         MainWindow.Visible = not MainWindow.Visible
-        OpenCloseButton.Visible = not MainWindow.Visible
+        -- Przycisk pozostaje zawsze widoczny, więc nie ukrywamy go
     end
 end)
 
