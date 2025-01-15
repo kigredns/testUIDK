@@ -574,138 +574,34 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 		Position = UDim2.new(0, 0, 1, -1)
 	}), "Stroke")
 
-
-			
-local UserInputService = game:GetService("UserInputService")
-
--- Function to create elements (placeholders, you need to replace them with actual functions)
-local function Create(elementType, properties)
-    local element = Instance.new(elementType)
-    for prop, value in pairs(properties) do
-        element[prop] = value
-    end
-    return element
-end
-
--- Function to make any GUI element draggable
-local function MakeDraggable(frame)
-    local dragging = false
-    local dragStart
-    local startPos
-
-    frame.InputBegan:Connect(function(input)
-        if input.UserInputType == Enum.UserInputType.MouseButton1 then
-            dragging = true
-            dragStart = input.Position
-            startPos = frame.Position
-        end
-    end)
-
-    UserInputService.InputChanged:Connect(function(input)
-        if dragging and input.UserInputType == Enum.UserInputType.MouseMovement then
-            local delta = input.Position - dragStart
-            frame.Position = UDim2.new(
-                startPos.X.Scale,
-                startPos.X.Offset + delta.X,
-                startPos.Y.Scale,
-                startPos.Y.Offset + delta.Y
-            )
-        end
-    end)
-
-    frame.InputEnded:Connect(function(input)
-        if input.UserInputType == Enum.UserInputType.MouseButton1 then
-            dragging = false
-        end
-    end)
-end
-
--- Create MainWindow GUI element (Add theme, props, children, etc.)
-local Orion = game.Players.LocalPlayer.PlayerGui -- Assuming Orion is your GUI container
-
-local MainWindow = Create("Frame", {
-    Name = "MainWindow",
-    Parent = Orion,
-    Position = UDim2.new(0.5, -307, 0.5, -172),
-    Size = UDim2.new(0, 615, 0, 344),
-    BackgroundColor3 = Color3.fromRGB(255, 255, 255),
-    ClipsDescendants = true
-})
-
-local TopBar = Create("Frame", {
-    Parent = MainWindow,
-    Size = UDim2.new(1, 0, 0, 50),
-    Name = "TopBar",
-    BackgroundColor3 = Color3.fromRGB(60, 60, 60)
-})
-
-local WindowName = Create("TextLabel", {
-    Parent = TopBar,
-    Position = UDim2.new(0, 10, 0, 10),
-    Size = UDim2.new(0, 200, 0, 30),
-    Text = "Window Title",
-    TextColor3 = Color3.fromRGB(255, 255, 255),
-    Font = Enum.Font.FredokaOne,
-    TextSize = 14
-})
-
-local WindowTopBarLine = Create("Frame", {
-    Parent = TopBar,
-    Position = UDim2.new(0, 0, 1, -1),
-    Size = UDim2.new(1, 0, 0, 1),
-    BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-})
-
--- Create a Close Button (just as an example)
-local CloseBtn = Create("TextButton", {
-    Parent = TopBar,
-    Size = UDim2.new(0, 50, 0, 30),
-    Position = UDim2.new(1, -60, 0, 10),
-    Text = "Close",
-    TextColor3 = Color3.fromRGB(255, 255, 255),
-    BackgroundColor3 = Color3.fromRGB(255, 0, 0),
-    Font = Enum.Font.FredokaOne,
-    TextSize = 14
-})
-
-CloseBtn.MouseButton1Click:Connect(function()
-    MainWindow.Visible = false
-end)
-
--- Create OpenCloseButton (button for toggling visibility)
-local OpenCloseButton = Create("Frame", {
-    Name = "OpenCloseButton",
-    Size = UDim2.new(0, 50, 0, 50),
-    Position = UDim2.new(0, 10, 0, 10),
-    BackgroundColor3 = Color3.fromRGB(60, 60, 60),
-    BorderSizePixel = 0,
-    Visible = true,
-    Parent = Orion
-})
-
-local OpenCloseText = Create("TextLabel", {
-    Size = UDim2.new(1, 0, 1, 0),
-    BackgroundTransparency = 1,
-    Text = "GUI",
-    TextColor3 = Color3.fromRGB(255, 255, 255),
-    Font = Enum.Font.FredokaOne,
-    TextSize = 14,
-    Parent = OpenCloseButton
-})
-
--- Add drag functionality to OpenCloseButton
-MakeDraggable(OpenCloseButton)
-
--- Function for opening/closing MainWindow
-OpenCloseButton.InputBegan:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 then
-        MainWindow.Visible = not MainWindow.Visible
-        OpenCloseButton.Visible = not MainWindow.Visible  -- Hide the button when the MainWindow is visible
-    end
-end)
-
--- Optional: If you want to make the window draggable, you can use MakeDraggable for the entire MainWindow
-MakeDraggable(MainWindow)
+	local MainWindow = AddThemeObject(SetChildren(SetProps(MakeElement("RoundFrame", Color3.fromRGB(255, 255, 255), 0, 10), {
+		Parent = Orion,
+		Position = UDim2.new(0.5, -307, 0.5, -172),
+		Size = UDim2.new(0, 615, 0, 344),
+		ClipsDescendants = true
+	}), {
+		SetChildren(SetProps(MakeElement("TFrame"), {
+			Size = UDim2.new(1, 0, 0, 50),
+			Name = "TopBar"
+		}), {
+			WindowName,
+			WindowTopBarLine,
+			AddThemeObject(SetChildren(SetProps(MakeElement("RoundFrame", Color3.fromRGB(255, 255, 255), 0, 7), {
+				Size = UDim2.new(0, 70, 0, 30),
+				Position = UDim2.new(1, -90, 0, 10)
+			}), {
+				AddThemeObject(MakeElement("Stroke"), "Stroke"),
+				AddThemeObject(SetProps(MakeElement("Frame"), {
+					Size = UDim2.new(0, 1, 1, 0),
+					Position = UDim2.new(0.5, 0, 0, 0)
+				}), "Stroke"), 
+				CloseBtn,
+				MinimizeBtn
+			}), "Second"), 
+		}),
+		DragPoint,
+		WindowStuff
+	}), "Main")
 
 	if WindowConfig.ShowIcon then
 		WindowName.Position = UDim2.new(0, 50, 0, -24)
