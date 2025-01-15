@@ -606,8 +606,8 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 -- Zwiększenie rozmiaru przycisku, zmiana tekstu na "NEST HUB" z kolorami i kolor na czarny
 local OpenCloseButton = Create("Frame", {
     Name = "OpenCloseButton",
-    Size = UDim2.new(0, 100, 0, 100), -- Zwiększenie rozmiaru do 100x100
-    Position = UDim2.new(0, 10, 0, 10), -- Pozostawienie pozycji w lewym górnym rogu ekranu
+    Size = UDim2.new(0, 150, 0, 51), -- Zwiększenie rozmiaru do 100x100
+    Position = UDim2.new(0.322580636, 0, 0.385840714, 0), -- Pozostawienie pozycji w lewym górnym rogu ekranu
     BackgroundColor3 = Color3.fromRGB(0, 0, 0), -- Kolor przycisku na czarny
     BorderSizePixel = 0,
     Visible = true, -- Widoczny na start
@@ -622,25 +622,25 @@ local OpenCloseButtonCorner = Create("UICorner", {
 
 -- Pierwsza część tekstu (NEST)
 local NESTText = Create("TextLabel", {
-    Size = UDim2.new(0.5, 0, 1, 0), -- Ustalamy szerokość na połowę (50%)
+    Size = UDim2.new(0, 29, 0, 23), -- Ustalamy szerokość na połowę (50%)
     BackgroundTransparency = 1,
     Text = "NEST", -- Zmienienie tekstu na "NEST"
-    TextColor3 = Color3.fromRGB(255, 165, 0), -- Kolor pomarańczowy
-    Font = Enum.Font.FredokaOne,
-    TextSize = 20, -- Zwiększenie rozmiaru czcionki
-    Position = UDim2.new(0, 0, 0, 0), -- Pozycja na lewą połowę
+    TextColor3 = Color3.fromRGB(255, 105, 6), -- Kolor pomarańczowy
+    Font = Enum.Font.SourceSansBold,
+    TextSize = 14, -- Zwiększenie rozmiaru czcionki
+    Position = UDim2.new(0, 0, 0.269607842, 0), -- Pozycja na lewą połowę
     Parent = OpenCloseButton
 })
 
 -- Druga część tekstu (HUB)
 local HUBText = Create("TextLabel", {
-    Size = UDim2.new(0.5, 0, 1, 0), -- Ustalamy szerokość na połowę (50%)
+    Size = UDim2.new(0, 29, 0, 23), -- Ustalamy szerokość na połowę (50%)
     BackgroundTransparency = 1,
     Text = "HUB", -- Zmienienie tekstu na "HUB"
     TextColor3 = Color3.fromRGB(255, 255, 255), -- Kolor biały
-    Font = Enum.Font.FredokaOne,
-    TextSize = 20, -- Zwiększenie rozmiaru czcionki
-    Position = UDim2.new(0.5, 0, 0, 0), -- Pozycja na prawą połowę
+    Font = Enum.Font.SourceSansBold,
+    TextSize = 14, -- Zwiększenie rozmiaru czcionki
+    Position = UDim2.new(0.482142866, 0, 0.269607842, 0), -- Pozycja na prawą połowę
     Parent = OpenCloseButton
 })
 
