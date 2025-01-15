@@ -603,25 +603,56 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
     WindowStuff
 }), "Main")
 
--- Dodanie przycisku otwierającego/zamykającego GUI
+-- Zwiększenie rozmiaru przycisku, zmiana tekstu na "NEST HUB" z kolorami i kolor na czarny
 local OpenCloseButton = Create("Frame", {
     Name = "OpenCloseButton",
-    Size = UDim2.new(0, 50, 0, 50), -- Rozmiar kwadratowy (50x50)
-    Position = UDim2.new(0, 10, 0, 10), -- Pozycja w lewym górnym rogu ekranu
-    BackgroundColor3 = Color3.fromRGB(60, 60, 60), -- Kolor przycisku
+    Size = UDim2.new(0, 100, 0, 100), -- Zwiększenie rozmiaru do 100x100
+    Position = UDim2.new(0, 10, 0, 10), -- Pozostawienie pozycji w lewym górnym rogu ekranu
+    BackgroundColor3 = Color3.fromRGB(0, 0, 0), -- Kolor przycisku na czarny
     BorderSizePixel = 0,
     Visible = true, -- Widoczny na start
     Parent = Orion -- Dodanie do GUI głównego
 })
 
-local OpenCloseText = Create("TextLabel", {
-    Size = UDim2.new(1, 0, 1, 0),
-    BackgroundTransparency = 1,
-    Text = "GUI",
-    TextColor3 = Color3.fromRGB(255, 255, 255),
-    Font = Enum.Font.FredokaOne,
-    TextSize = 14,
+-- Dodanie zaokrąglonych rogów do przycisku
+local OpenCloseButtonCorner = Create("UICorner", {
+    CornerRadius = UDim.new(0, 10), -- Zaokrąglone rogi z promieniem 10
     Parent = OpenCloseButton
+})
+
+-- Pierwsza część tekstu (NEST)
+local NESTText = Create("TextLabel", {
+    Size = UDim2.new(0.5, 0, 1, 0), -- Ustalamy szerokość na połowę (50%)
+    BackgroundTransparency = 1,
+    Text = "NEST", -- Zmienienie tekstu na "NEST"
+    TextColor3 = Color3.fromRGB(255, 165, 0), -- Kolor pomarańczowy
+    Font = Enum.Font.FredokaOne,
+    TextSize = 20, -- Zwiększenie rozmiaru czcionki
+    Position = UDim2.new(0, 0, 0, 0), -- Pozycja na lewą połowę
+    Parent = OpenCloseButton
+})
+
+-- Druga część tekstu (HUB)
+local HUBText = Create("TextLabel", {
+    Size = UDim2.new(0.5, 0, 1, 0), -- Ustalamy szerokość na połowę (50%)
+    BackgroundTransparency = 1,
+    Text = "HUB", -- Zmienienie tekstu na "HUB"
+    TextColor3 = Color3.fromRGB(255, 255, 255), -- Kolor biały
+    Font = Enum.Font.FredokaOne,
+    TextSize = 20, -- Zwiększenie rozmiaru czcionki
+    Position = UDim2.new(0.5, 0, 0, 0), -- Pozycja na prawą połowę
+    Parent = OpenCloseButton
+})
+
+-- Dodanie zaokrąglonych rogów do tekstów
+local NESTTextCorner = Create("UICorner", {
+    CornerRadius = UDim.new(0, 10), -- Zaokrąglone rogi z promieniem 10 (opcjonalnie)
+    Parent = NESTText
+})
+
+local HUBTextCorner = Create("UICorner", {
+    CornerRadius = UDim.new(0, 10), -- Zaokrąglone rogi z promieniem 10 (opcjonalnie)
+    Parent = HUBText
 })
 
 -- Funkcja otwierania/zamykania GUI
