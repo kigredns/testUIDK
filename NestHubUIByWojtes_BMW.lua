@@ -603,11 +603,10 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
     WindowStuff
 }), "Main")
 
--- Zwiększenie rozmiaru przycisku, zmiana tekstu na "NEST HUB" z kolorami i kolor na czarny
 local OpenCloseButton = Create("Frame", {
     Name = "OpenCloseButton",
-    Size = UDim2.new(0, 150, 0, 51), -- Zwiększenie rozmiaru do 100x100
-    Position = UDim2.new(0.322580636, 0, 0.385840714, 0), -- Pozostawienie pozycji w lewym górnym rogu ekranu
+    Size = UDim2.new(0, 50, 0, 50), -- Zmniejszenie rozmiaru do 50x50
+    Position = UDim2.new(0, 10, 0, 10), -- Pozostawienie pozycji w lewym górnym rogu ekranu
     BackgroundColor3 = Color3.fromRGB(0, 0, 0), -- Kolor przycisku na czarny
     BorderSizePixel = 0,
     Visible = true, -- Widoczny na start
@@ -620,39 +619,35 @@ local OpenCloseButtonCorner = Create("UICorner", {
     Parent = OpenCloseButton
 })
 
--- Pierwsza część tekstu (NEST)
+-- Pierwsza część tekstu (NEST) w kolorze pomarańczowym
 local NESTText = Create("TextLabel", {
-    Size = UDim2.new(0, 29, 0, 23), -- Ustalamy szerokość na połowę (50%)
+    Size = UDim2.new(0.5, 0, 1, 0), -- Ustalamy szerokość na połowę (50%)
     BackgroundTransparency = 1,
     Text = "NEST", -- Zmienienie tekstu na "NEST"
-    TextColor3 = Color3.fromRGB(255, 105, 6), -- Kolor pomarańczowy
-    Font = Enum.Font.SourceSansBold,
-    TextSize = 14, -- Zwiększenie rozmiaru czcionki
-    Position = UDim2.new(0, 0, 0.269607842, 0), -- Pozycja na lewą połowę
+    TextColor3 = Color3.fromRGB(255, 165, 0), -- Kolor pomarańczowy
+    Font = Enum.Font.FredokaOne,
+    TextSize = 10, -- Zmniejszenie rozmiaru czcionki
+    TextStrokeTransparency = 0.8, -- Dodanie lekkiego obrysu
+    TextStrokeColor3 = Color3.fromRGB(0, 0, 0), -- Kolor obrysu
+    TextAlign = Enum.TextXAlignment.Center, -- Wyrównanie tekstu na środek
+    TextYAlignment = Enum.TextYAlignment.Center, -- Wyrównanie tekstu w pionie
     Parent = OpenCloseButton
 })
 
--- Druga część tekstu (HUB)
+-- Druga część tekstu (HUB) w kolorze białym
 local HUBText = Create("TextLabel", {
-    Size = UDim2.new(0, 29, 0, 23), -- Ustalamy szerokość na połowę (50%)
+    Size = UDim2.new(0.5, 0, 1, 0), -- Ustalamy szerokość na połowę (50%)
     BackgroundTransparency = 1,
     Text = "HUB", -- Zmienienie tekstu na "HUB"
     TextColor3 = Color3.fromRGB(255, 255, 255), -- Kolor biały
-    Font = Enum.Font.SourceSansBold,
-    TextSize = 14, -- Zwiększenie rozmiaru czcionki
-    Position = UDim2.new(0.482142866, 0, 0.269607842, 0), -- Pozycja na prawą połowę
+    Font = Enum.Font.FredokaOne,
+    TextSize = 10, -- Zmniejszenie rozmiaru czcionki
+    TextStrokeTransparency = 0.8, -- Dodanie lekkiego obrysu
+    TextStrokeColor3 = Color3.fromRGB(0, 0, 0), -- Kolor obrysu
+    TextAlign = Enum.TextXAlignment.Center, -- Wyrównanie tekstu na środek
+    TextYAlignment = Enum.TextYAlignment.Center, -- Wyrównanie tekstu w pionie
+    Position = UDim2.new(0.5, 0, 0, 0), -- Pozycja na prawą połowę
     Parent = OpenCloseButton
-})
-
--- Dodanie zaokrąglonych rogów do tekstów
-local NESTTextCorner = Create("UICorner", {
-    CornerRadius = UDim.new(0, 10), -- Zaokrąglone rogi z promieniem 10 (opcjonalnie)
-    Parent = NESTText
-})
-
-local HUBTextCorner = Create("UICorner", {
-    CornerRadius = UDim.new(0, 10), -- Zaokrąglone rogi z promieniem 10 (opcjonalnie)
-    Parent = HUBText
 })
 
 -- Funkcja otwierania/zamykania GUI
@@ -664,6 +659,7 @@ end)
 
 -- Dodanie funkcji przeciągania
 MakeDraggable(OpenCloseButton, OpenCloseButton)
+
 
 
 	if WindowConfig.ShowIcon then
