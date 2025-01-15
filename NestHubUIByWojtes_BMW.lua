@@ -575,98 +575,33 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 	}), "Stroke")
 
 	local MainWindow = AddThemeObject(SetChildren(SetProps(MakeElement("RoundFrame", Color3.fromRGB(255, 255, 255), 0, 10), {
-    Parent = Orion,
-    Position = UDim2.new(0.5, -307, 0.5, -172),
-    Size = UDim2.new(0, 615, 0, 344),
-    ClipsDescendants = true
-}), {
-    SetChildren(SetProps(MakeElement("TFrame"), {
-        Size = UDim2.new(1, 0, 0, 50),
-        Name = "TopBar"
-    }), {
-        WindowName,
-        WindowTopBarLine,
-        AddThemeObject(SetChildren(SetProps(MakeElement("RoundFrame", Color3.fromRGB(255, 255, 255), 0, 7), {
-            Size = UDim2.new(0, 70, 0, 30),
-            Position = UDim2.new(1, -90, 0, 10)
-        }), {
-            AddThemeObject(MakeElement("Stroke"), "Stroke"),
-            AddThemeObject(SetProps(MakeElement("Frame"), {
-                Size = UDim2.new(0, 1, 1, 0),
-                Position = UDim2.new(0.5, 0, 0, 0)
-            }), "Stroke"), 
-            CloseBtn,
-            MinimizeBtn
-        }), "Second"), 
-    }),
-    DragPoint,
-    WindowStuff
-}), "Main")
-
--- Zwiększenie rozmiaru przycisku, zmiana tekstu na "NEST HUB" z kolorami i kolor na czarny
-local OpenCloseButton = Create("Frame", {
-    Name = "OpenCloseButton",
-    Size = UDim2.new(0, 100, 0, 100), -- Zwiększenie rozmiaru do 100x100
-    Position = UDim2.new(0, 10, 0, 10), -- Pozostawienie pozycji w lewym górnym rogu ekranu
-    BackgroundColor3 = Color3.fromRGB(0, 0, 0), -- Kolor przycisku na czarny
-    BorderSizePixel = 0,
-    Visible = true, -- Widoczny na start
-    Parent = Orion -- Dodanie do GUI głównego
-})
-
--- Dodanie zaokrąglonych rogów do przycisku
-local OpenCloseButtonCorner = Create("UICorner", {
-    CornerRadius = UDim.new(0, 10), -- Zaokrąglone rogi z promieniem 10
-    Parent = OpenCloseButton
-})
-
--- Pierwsza część tekstu (NEST)
-local NESTText = Create("TextLabel", {
-    Size = UDim2.new(0.5, 0, 1, 0), -- Ustalamy szerokość na połowę (50%)
-    BackgroundTransparency = 1,
-    Text = "NEST", -- Zmienienie tekstu na "NEST"
-    TextColor3 = Color3.fromRGB(255, 165, 0), -- Kolor pomarańczowy
-    Font = Enum.Font.FredokaOne,
-    TextSize = 20, -- Zwiększenie rozmiaru czcionki
-    Position = UDim2.new(0, 0, 0, 0), -- Pozycja na lewą połowę
-    Parent = OpenCloseButton
-})
-
--- Druga część tekstu (HUB)
-local HUBText = Create("TextLabel", {
-    Size = UDim2.new(0.5, 0, 1, 0), -- Ustalamy szerokość na połowę (50%)
-    BackgroundTransparency = 1,
-    Text = "HUB", -- Zmienienie tekstu na "HUB"
-    TextColor3 = Color3.fromRGB(255, 255, 255), -- Kolor biały
-    Font = Enum.Font.FredokaOne,
-    TextSize = 20, -- Zwiększenie rozmiaru czcionki
-    Position = UDim2.new(0.5, 0, 0, 0), -- Pozycja na prawą połowę
-    Parent = OpenCloseButton
-})
-
--- Dodanie zaokrąglonych rogów do tekstów
-local NESTTextCorner = Create("UICorner", {
-    CornerRadius = UDim.new(0, 10), -- Zaokrąglone rogi z promieniem 10 (opcjonalnie)
-    Parent = NESTText
-})
-
-local HUBTextCorner = Create("UICorner", {
-    CornerRadius = UDim.new(0, 10), -- Zaokrąglone rogi z promieniem 10 (opcjonalnie)
-    Parent = HUBText
-})
-
--- Funkcja otwierania/zamykania GUI
-OpenCloseButton.InputBegan:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 then
-        MainWindow.Visible = not MainWindow.Visible
-    end
-end)
-
--- Dodanie funkcji przeciągania
-MakeDraggable(OpenCloseButton, OpenCloseButton)
-
-
-
+		Parent = Orion,
+		Position = UDim2.new(0.5, -307, 0.5, -172),
+		Size = UDim2.new(0, 615, 0, 344),
+		ClipsDescendants = true
+	}), {
+		SetChildren(SetProps(MakeElement("TFrame"), {
+			Size = UDim2.new(1, 0, 0, 50),
+			Name = "TopBar"
+		}), {
+			WindowName,
+			WindowTopBarLine,
+			AddThemeObject(SetChildren(SetProps(MakeElement("RoundFrame", Color3.fromRGB(255, 255, 255), 0, 7), {
+				Size = UDim2.new(0, 70, 0, 30),
+				Position = UDim2.new(1, -90, 0, 10)
+			}), {
+				AddThemeObject(MakeElement("Stroke"), "Stroke"),
+				AddThemeObject(SetProps(MakeElement("Frame"), {
+					Size = UDim2.new(0, 1, 1, 0),
+					Position = UDim2.new(0.5, 0, 0, 0)
+				}), "Stroke"), 
+				CloseBtn,
+				MinimizeBtn
+			}), "Second"), 
+		}),
+		DragPoint,
+		WindowStuff
+	}), "Main")
 
 	if WindowConfig.ShowIcon then
 		WindowName.Position = UDim2.new(0, 50, 0, -24)
