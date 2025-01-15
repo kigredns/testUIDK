@@ -574,34 +574,94 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 		Position = UDim2.new(0, 0, 1, -1)
 	}), "Stroke")
 
-	local MainWindow = AddThemeObject(SetChildren(SetProps(MakeElement("RoundFrame", Color3.fromRGB(255, 255, 255), 0, 10), {
-		Parent = Orion,
-		Position = UDim2.new(0.5, -307, 0.5, -172),
-		Size = UDim2.new(0, 615, 0, 344),
-		ClipsDescendants = true
-	}), {
-		SetChildren(SetProps(MakeElement("TFrame"), {
-			Size = UDim2.new(1, 0, 0, 50),
-			Name = "TopBar"
-		}), {
-			WindowName,
-			WindowTopBarLine,
-			AddThemeObject(SetChildren(SetProps(MakeElement("RoundFrame", Color3.fromRGB(255, 255, 255), 0, 7), {
-				Size = UDim2.new(0, 70, 0, 30),
-				Position = UDim2.new(1, -90, 0, 10)
-			}), {
-				AddThemeObject(MakeElement("Stroke"), "Stroke"),
-				AddThemeObject(SetProps(MakeElement("Frame"), {
-					Size = UDim2.new(0, 1, 1, 0),
-					Position = UDim2.new(0.5, 0, 0, 0)
-				}), "Stroke"), 
-				CloseBtn,
-				MinimizeBtn
-			}), "Second"), 
-		}),
-		DragPoint,
-		WindowStuff
-	}), "Main")
+local MainWindow = AddThemeObject(SetChildren(SetProps(MakeElement("RoundFrame", Color3.fromRGB(255, 255, 255), 0, 10), {
+    Parent = Orion,
+    Position = UDim2.new(0.5, -307, 0.5, -172),
+    Size = UDim2.new(0, 615, 0, 344),
+    ClipsDescendants = true
+}), {
+    SetChildren(SetProps(MakeElement("TFrame"), {
+        Size = UDim2.new(1, 0, 0, 50),
+        Name = "TopBar"
+    }), {
+        WindowName,
+        WindowTopBarLine,
+        AddThemeObject(SetChildren(SetProps(MakeElement("RoundFrame", Color3.fromRGB(255, 255, 255), 0, 7), {
+            Size = UDim2.new(0, 70, 0, 30),
+            Position = UDim2.new(1, -90, 0, 10)
+        }), {
+            AddThemeObject(MakeElement("Stroke"), "Stroke"),
+            AddThemeObject(SetProps(MakeElement("Frame"), {
+                Size = UDim2.new(0, 1, 1, 0),
+                Position = UDim2.new(0.5, 0, 0, 0)
+            }), "Stroke"), 
+            CloseBtn,
+            MinimizeBtn
+        }), "Second"), 
+    }),
+    DragPoint,
+    WindowStuff
+}), "Main")
+
+-- Dodanie przycisku otwierającego/zamykającego GUI
+local OpenCloseButton = Create("Frame", {
+    Name = "OpenCloseButton",
+    Size = UDim2.new(0, 50, 0, 50), -- Rozmiar kwadratowy (50x50)
+    Position = UDim2.new(0, 10, 0, 10), -- Pozycja w lewym górnym rogu ekranu
+    BackgroundColor3 = Color3.fromRGB(60, 60, 60), -- Kolor przycisku
+    BorderSizePixel = 0,
+    Visible = true, -- Widoczny na start
+    Parent = Orion -- Dodanie do GUI głównego
+})
+
+local OpenCloseText = Create("TextLabel", {
+    Size = UDim2.new(1, 0, 1, 0),
+    BackgroundTransparency = 1,
+    Text = "GUI",
+    TextColor3 = Color3.fromRGB(255, 255, 255),
+    Font = Enum.Font.FredokaOne,
+    TextSize = 14,
+    Parent = OpenCloseButton
+})
+
+-- Dodanie funkcji przeciągania
+local dragging = false
+local dragStart
+local startPos
+
+OpenCloseButton.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+        dragging = true
+        dragStart = input.Position
+        startPos = OpenCloseButton.Position
+        input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                dragging = false
+            end
+        end)
+    end
+end)
+
+OpenCloseButton.InputChanged:Connect(function(input)
+    if dragging and input.UserInputType == Enum.UserInputType.MouseMovement then
+        local delta = input.Position - dragStart
+        OpenCloseButton.Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + delta.Y
+        )
+    end
+end)
+
+-- Funkcja otwierania/zamykania GUI
+OpenCloseButton.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 and not dragging then
+        MainWindow.Visible = not MainWindow.Visible
+        OpenCloseButton.Visible = not MainWindow.Visible
+    end
+end)
+
 
 	if WindowConfig.ShowIcon then
 		WindowName.Position = UDim2.new(0, 50, 0, -24)
