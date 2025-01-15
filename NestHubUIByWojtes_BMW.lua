@@ -624,10 +624,15 @@ local OpenCloseText = Create("TextLabel", {
     Parent = OpenCloseButton
 })
 
+-- Funkcja otwierania/zamykania GUI
+OpenCloseButton.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+        MainWindow.Visible = not MainWindow.Visible
+    end
+end)
+
 -- Dodanie funkcji przeciągania
-local dragging = false
-local dragStart
-local startPos
+MakeDraggable(OpenCloseButton, OpenCloseButton)
 
 OpenCloseButton.InputBegan:Connect(function(input)
     if input.UserInputType == Enum.UserInputType.MouseButton1 then
@@ -658,7 +663,7 @@ end)
 OpenCloseButton.InputBegan:Connect(function(input)
     if input.UserInputType == Enum.UserInputType.MouseButton1 and not dragging then
         MainWindow.Visible = not MainWindow.Visible
-        -- Przycisk pozostaje zawsze widoczny, więc nie ukrywamy go
+        OpenCloseButton.Visible = not MainWindow.Visible
     end
 end)
 
