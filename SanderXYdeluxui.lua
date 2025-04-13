@@ -16,7 +16,7 @@ local OrionLib = {
 			Second = Color3.fromRGB(0, 0, 0),
 			Stroke = Color3.fromRGB(255, 255, 255),
 			Divider = Color3.fromRGB(60, 60, 60),
-			Text = Color3.fromRGB(255, 255, 255),
+			Text = Color3.fromRGB(0, 255, 255),
 			TextDark = Color3.fromRGB(255, 255, 255)
 		}
 	},
@@ -564,7 +564,7 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
     TextSize = 20,
     TextColor3 = Color3.fromRGB(255, 255, 255), -- Kolor tekstu jako biały (domyślny)
     RichText = true,  -- Włącz RichText
-    Text = "<font color='rgb(255, 255, 255)'>Sander</font> <font color='rgb(255, 255, 255)'>XY「 BrookHaven 」 • </font> <font color='rgb(80, 80, 80)'>DELUX</font> <font color='rgb(255, 255, 255)'> •</font>" -- Używamy tagów <font color='rgb(R, G, B)'>tekst</font>
+    Text = "<font color='rgb(0, 255, 255)'>Sander</font> <font color='rgb(255, 255, 255)'>XY「 BrookHaven 」 • </font> <font color='rgb(80, 80, 80)'>DELUX</font> <font color='rgb(255, 255, 255)'> •</font>" -- Używamy tagów <font color='rgb(R, G, B)'>tekst</font>
 })
 
 
