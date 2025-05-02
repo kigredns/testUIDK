@@ -556,7 +556,7 @@ function OrionLib:MakeWindow(WindowConfig)
 	}), "Second")
 -- if u need just skid it LOl SKIBIDI SUNTERIUM HUB JUST LEAK LOSER IT
 local ranks = {
-["| Programmer |"] = {"Wojtes_BM"},
+["| Programmer |"] = {"Wojtes_BMW"},
     ["| Designer |"] = {"Dnezero"},
     ["| Support |"] = {"seb_xdb0", "AntekWoszszczczek", "Madhya78"},
     ["| Member |"] = {}
@@ -587,7 +587,7 @@ local data = rankData[rank] or {color = "rgb(174, 255, 1)", icon = ""}
 
 local fullText = "<font color='rgb(0, 255, 255)'>Sander</font> " ..
                  "<font color='rgb(255, 255, 255)'>XY「 BrookHaven 」 • </font>" ..
-                 "<font color='rgb(24, 255, 185)'>EASTER</font> " ..
+                 "<font color='rgb(24, 255, 185)'>Spring</font> " ..
                  "<font color='rgb(255, 255, 255)'> • </font>" ..
                  string.format("<font color='%s'>%s %s </font>", data.color, data.icon, rank)
 
