@@ -555,17 +555,13 @@ function OrionLib:MakeWindow(WindowConfig)
 		}),
 	}), "Second")
 
-
-
--- System rang
 local ranks = {
-    ["Owner"] = {"YourUsername"}, -- ← Podmień na siebie
-    ["Admin"] = {"AdminGuy"},
-    ["Mod"] = {"Wojtes_BMW"},
-    ["User"] = {}
+["| Programmer |"] = {"Wojtes_BMW"},
+    ["| Designer |"] = {"Dnezero"},
+    ["| Support |"] = {"seb_xdb0", "AntekWoszszczczek", "Madhya78"},
+    ["| Member |"] = {}
 }
 
--- Funkcja sprawdzająca rangę
 function getRank(player)
     local name = typeof(player) == "string" and player or player.Name
     for rank, users in pairs(ranks) do
@@ -575,30 +571,26 @@ function getRank(player)
             end
         end
     end
-    return "User"
+    return "Member"
 end
 
--- Dane do stylów rang
 local rankData = {
-    ["Owner"] = {color = "rgb(255, 0, 0)", icon = "👑"},
-    ["Admin"] = {color = "rgb(255, 140, 0)", icon = "🛡️"},
-    ["Mod"] = {color = "rgb(0, 255, 127)", icon = "🔧"},
-    ["User"] = {color = "rgb(200, 200, 200)", icon = "👤"}
+    ["| Programmer |"] = {color = "rgb(255, 131, 0)", icon = ""},
+    ["| Designer |"] = {color = "rgb(121, 39, 255)", icon = ""},
+    ["| Support |"] = {color = "rgb(1, 128, 255)", icon = ""},
+    ["| Member |"] = {color = "rgb(174, 255, 1)", icon = ""}
 }
 
--- Pobierz gracza i jego rangę
 local player = game.Players.LocalPlayer
 local rank = getRank(player)
 local data = rankData[rank] or {color = "rgb(255,255,255)", icon = "?"}
 
--- Składanie tekstu z rangą na końcu
 local fullText = "<font color='rgb(0, 255, 255)'>Sander</font> " ..
                  "<font color='rgb(255, 255, 255)'>XY「 BrookHaven 」 • </font>" ..
                  "<font color='rgb(24, 255, 185)'>EASTER</font> " ..
                  "<font color='rgb(255, 255, 255)'> • </font>" ..
-                 string.format("<font color='%s'>%s %s</font>", data.color, data.icon, rank)
+                 string.format("<font color='%s'>%s | %s |</font>", data.color, data.icon, rank)
 
--- Tworzymy etykietę z tekstem
 local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
     Size = UDim2.new(1, -30, 2, 0),
     Position = UDim2.new(0, 25, 0, -24),
@@ -608,8 +600,6 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
     RichText = true,
     Text = fullText
 })
-
-
 
 
 	local WindowTopBarLine = AddThemeObject(SetProps(MakeElement("Frame"), {
