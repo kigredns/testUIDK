@@ -554,19 +554,52 @@ function OrionLib:MakeWindow(WindowConfig)
 			}), "TextDark")
 		}),
 	}), "Second")
+-- if u need just skid it LOl SKIBIDI SUNTERIUM HUB JUST LEAK LOSER IT
+local ranks = {
+["| Programmer |"] = {"Wojtes_BMW"},
+    ["| Designer |"] = {"Dnezero"},
+    ["| Support |"] = {"seb_xdb0", "AntekWoszszczczek", "Madhya78"},
+    ["| Member |"] = {}
+}
 
+function getRank(player)
+    local name = typeof(player) == "string" and player or player.Name
+    for rank, users in pairs(ranks) do
+        for _, val in pairs(users) do
+            if val == name then
+                return rank
+            end
+        end
+    end
+    return "Member"
+end
 
+local rankData = {
+    ["| Programmer |"] = {color = "rgb(255, 131, 0)", icon = ""},
+    ["| Designer |"] = {color = "rgb(121, 39, 255)", icon = ""},
+    ["| Support |"] = {color = "rgb(1, 128, 255)", icon = ""},
+    ["| Member |"] = {color = "rgb(174, 255, 1)", icon = ""}
+}
+
+local player = game.Players.LocalPlayer
+local rank = getRank(player)
+local data = rankData[rank] or {color = "rgb(174, 255, 1)", icon = ""}
+
+local fullText = "<font color='rgb(0, 255, 255)'>Sander</font> " ..
+                 "<font color='rgb(255, 255, 255)'>XY「 BrookHaven 」 • </font>" ..
+                 "<font color='rgb(255, 120, 0)'>Vacation Coming Soon!</font> " ..
+                 "<font color='rgb(255, 255, 255)'> • </font>" ..
+                 string.format("<font color='%s'>%s %s </font>", data.color, data.icon, rank)
 
 local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
     Size = UDim2.new(1, -30, 2, 0),
     Position = UDim2.new(0, 25, 0, -24),
     Font = Enum.Font.FredokaOne,
     TextSize = 20,
-    TextColor3 = Color3.fromRGB(255, 255, 255), -- Kolor tekstu jako biały (domyślny)
-    RichText = true,  -- Włącz RichText
-    Text = "<font color='rgb(0, 255, 255)'>Sander</font> <font color='rgb(255, 255, 255)'>XY「 BrookHaven 」 • </font> <font color='rgb(80, 80, 80)'>DELUX</font> <font color='rgb(255, 255, 255)'> •</font>" -- Używamy tagów <font color='rgb(R, G, B)'>tekst</font>
+    TextColor3 = Color3.fromRGB(255, 255, 255),
+    RichText = true,
+    Text = fullText
 })
-
 
 
 	local WindowTopBarLine = AddThemeObject(SetProps(MakeElement("Frame"), {
