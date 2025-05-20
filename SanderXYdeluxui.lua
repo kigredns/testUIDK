@@ -14,10 +14,10 @@ local OrionLib = {
 		Default = {
 			Main = Color3.fromRGB(0, 0, 0),
 			Second = Color3.fromRGB(0, 0, 0),
-			Stroke = Color3.fromRGB(0, 255, 255),
+			Stroke = Color3.fromRGB(255, 255, 255),
 			Divider = Color3.fromRGB(60, 60, 60),
-			Text = Color3.fromRGB(255, 255, 255),
-			TextDark = Color3.fromRGB(0, 255, 255)
+			Text = Color3.fromRGB(0, 255, 255),
+			TextDark = Color3.fromRGB(255, 255, 255)
 		}
 	},
 	SelectedTheme = "Default",
@@ -346,7 +346,7 @@ end)
 CreateElement("Label", function(Text, TextSize, Transparency)
 	local Label = Create("TextLabel", {
 		Text = Text or "",
-		TextColor3 = Color3.fromRGB(0, 255, 255),
+		TextColor3 = Color3.fromRGB(255, 255, 255),
 		TextTransparency = Transparency or 0,
 		TextSize = TextSize or 15,
 		Font = Enum.Font.FredokaOne,
@@ -390,7 +390,7 @@ function OrionLib:MakeNotification(NotificationConfig)
 			Position = UDim2.new(1, -55, 0, 0),
 			AutomaticSize = Enum.AutomaticSize.Y
 		}), {
-			MakeElement("Stroke", Color3.fromRGB(0, 255, 255), 1.2),
+			MakeElement("Stroke", Color3.fromRGB(255, 255, 255), 1.2),
 			MakeElement("Padding", 12, 12, 12, 12),
 			SetProps(MakeElement("Image", NotificationConfig.Image), {
 				Size = UDim2.new(0, 20, 0, 20),
@@ -587,7 +587,7 @@ local data = rankData[rank] or {color = "rgb(174, 255, 1)", icon = ""}
 
 local fullText = "<font color='rgb(0, 255, 255)'>Sander</font> " ..
                  "<font color='rgb(255, 255, 255)'>XY「 BrookHaven 」 • </font>" ..
-                 "<font color='rgb(24, 255, 185)'>Spring</font> " ..
+                 "<font color='rgb(255, 120, 0)'>Vacation Coming!</font> " ..
                  "<font color='rgb(255, 255, 255)'> • </font>" ..
                  string.format("<font color='%s'>%s %s </font>", data.color, data.icon, rank)
 
@@ -1507,7 +1507,7 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 					Position = UDim2.new(1, -20, 0, 0),
 					Visible = false
 				}, {
-					Create("UIGradient", {Rotation = 270, Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 0, 4)), ColorSequenceKeypoint.new(0.20, Color3.fromRGB(234, 255, 0)), ColorSequenceKeypoint.new(0.40, Color3.fromRGB(21, 255, 0)), ColorSequenceKeypoint.new(0.60, Color3.fromRGB(0, 255, 255)), ColorSequenceKeypoint.new(0.80, Color3.fromRGB(0, 17, 255)), ColorSequenceKeypoint.new(0.90, Color3.fromRGB(255, 0, 251)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 0, 4))},}),
+					Create("UIGradient", {Rotation = 270, Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 0, 4)), ColorSequenceKeypoint.new(0.20, Color3.fromRGB(234, 255, 0)), ColorSequenceKeypoint.new(0.40, Color3.fromRGB(21, 255, 0)), ColorSequenceKeypoint.new(0.60, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(0.80, Color3.fromRGB(0, 17, 255)), ColorSequenceKeypoint.new(0.90, Color3.fromRGB(255, 0, 251)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 0, 4))},}),
 					Create("UICorner", {CornerRadius = UDim.new(0, 5)}),
 					HueSelection
 				})
@@ -1851,8 +1851,6 @@ function OrionLib:MakeNotifi(Configs)
     TextSize = 20,
     BackgroundTransparency = 1,
     TextColor3 = Color3.fromRGB(200, 200, 200),
-
-          
     Position = UDim2.new(1, -5, 0, 5),
     AnchorPoint = Vector2.new(1, 0),
     Size = UDim2.new(0, 25, 0, 25)
