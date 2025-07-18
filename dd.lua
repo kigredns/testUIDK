@@ -1,3 +1,4 @@
+-- 1
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
@@ -317,7 +318,7 @@ CreateElement("ScrollFrame", function(Color, Width)
 		BorderSizePixel = 0,
 		ScrollBarThickness = Width,
 		Size = UDim2.new(1, 0, 1, 0),
-		CanvasSize = UDim2.new(0, 0.0, 0, 0.0)
+		CanvasSize = UDim2.new(0, 0, 0, 0)
 	})
 	return ScrollFrame
 end)
@@ -393,19 +394,19 @@ function OrionLib:MakeNotification(NotificationConfig)
 			MakeElement("Stroke", Color3.fromRGB(255, 255, 255), 1.2),
 			MakeElement("Padding", 12, 12, 12, 12),
 			SetProps(MakeElement("Image", NotificationConfig.Image), {
-				Size = UDim2.new(0, 26.0, 0, 26.0),
+				Size = UDim2.new(0, 20, 0, 20),
 				ImageColor3 = Color3.fromRGB(255, 255, 255),
 				Name = "Icon"
 			}),
 			SetProps(MakeElement("Label", NotificationConfig.Name, 15), {
 				Size = UDim2.new(1, -30, 0, 20),
-				Position = UDim2.new(0, 39.0, 0, 0.0),
+				Position = UDim2.new(0, 30, 0, 0),
 				Font = Enum.Font.FredokaOne,
 				Name = "Title"
 			}),
 			SetProps(MakeElement("Label", NotificationConfig.Content, 14), {
 				Size = UDim2.new(1, 0, 0, 0),
-				Position = UDim2.new(0, 0.0, 0, 32.5),
+				Position = UDim2.new(0, 0, 0, 25),
 				Font = Enum.Font.FredokaOne,
 				Name = "Content",
 				AutomaticSize = Enum.AutomaticSize.Y,
@@ -413,7 +414,7 @@ function OrionLib:MakeNotification(NotificationConfig)
 				TextWrapped = true
 			})
 		})
-		TweenService:Create(NotificationFrame, TweenInfo.new(0.5, Enum.EasingStyle.Quint), {Position = UDim2.new(0, 0.0, 0, 0.0)}):Play()
+		TweenService:Create(NotificationFrame, TweenInfo.new(0.5, Enum.EasingStyle.Quint), {Position = UDim2.new(0, 0, 0, 0)}):Play()
 		wait(NotificationConfig.Time - 0.88)
 		TweenService:Create(NotificationFrame.Icon, TweenInfo.new(0.4, Enum.EasingStyle.Quint), {ImageTransparency = 1}):Play()
 		TweenService:Create(NotificationFrame, TweenInfo.new(0.8, Enum.EasingStyle.Quint), {BackgroundTransparency = 0.2}):Play()
@@ -473,7 +474,7 @@ function OrionLib:MakeWindow(WindowConfig)
 	end
 
 	local TabHolder = AddThemeObject(SetChildren(SetProps(MakeElement("ScrollFrame", Color3.fromRGB(255, 255, 255), 4), {
-		Size = UDim2.new(1, 0, 1, -50)
+		Size = UDim2.new(1, 0, 1, -70)
 	}), {
 		MakeElement("List"),
 		MakeElement("Padding", 8, 0, 0, 8)
@@ -485,12 +486,12 @@ function OrionLib:MakeWindow(WindowConfig)
 
 	local CloseBtn = SetChildren(SetProps(MakeElement("Button"), {
 		Size = UDim2.new(0.5, 0, 1, 0),
-		Position = UDim2.new(0.5, 0.0, 0, 0.0),
+		Position = UDim2.new(0.5, 0, 0, 0),
 		BackgroundTransparency = 1
 	}), {
 		AddThemeObject(SetProps(MakeElement("Image", "rbxassetid://7743878737"), {
-			Position = UDim2.new(0, 11.700000000000001, 0, 7.800000000000001),
-			Size = UDim2.new(0, 23.400000000000002, 0, 23.400000000000002)
+			Position = UDim2.new(0, 9, 0, 6),
+			Size = UDim2.new(0, 18, 0, 18)
 		}), "Text")
 	})
 
@@ -499,8 +500,8 @@ function OrionLib:MakeWindow(WindowConfig)
 		BackgroundTransparency = 1
 	}), {
 		AddThemeObject(SetProps(MakeElement("Image", "rbxassetid://7072719338"), {
-			Position = UDim2.new(0, 11.700000000000001, 0, 7.800000000000001),
-			Size = UDim2.new(0, 23.400000000000002, 0, 23.400000000000002),
+			Position = UDim2.new(0, 9, 0, 6),
+			Size = UDim2.new(0, 18, 0, 18),
 			Name = "Ico"
 		}), "Text")
 	})
@@ -511,11 +512,11 @@ function OrionLib:MakeWindow(WindowConfig)
 
 	local WindowStuff = AddThemeObject(SetChildren(SetProps(MakeElement("RoundFrame", Color3.fromRGB(255, 255, 255), 0, 10), {
 		Size = UDim2.new(0, 150, 1, -50),
-		Position = UDim2.new(0, 0.0, 0, 65.0)
+		Position = UDim2.new(0, 0, 0, 50)
 	}), {
 		AddThemeObject(SetProps(MakeElement("Frame"), {
 			Size = UDim2.new(1, 0, 0, 10),
-			Position = UDim2.new(0, 0.0, 0, 0.0)
+			Position = UDim2.new(0, 0, 0, 0)
 		}), "Second"), 
 		AddThemeObject(SetProps(MakeElement("Frame"), {
 			Size = UDim2.new(0, 10, 1, 0),
@@ -535,15 +536,15 @@ function OrionLib:MakeWindow(WindowConfig)
 			}), "Stroke"), 
 			SetChildren(SetProps(MakeElement("TFrame"), {
 				AnchorPoint = Vector2.new(0, 0.5),
-				Size = UDim2.new(0, 41.6, 0, 41.6),
-				Position = UDim2.new(0, 13.0, 0.5, 0.0)
+				Size = UDim2.new(0, 32, 0, 32),
+				Position = UDim2.new(0, 10, 0.5, 0)
 			}), {
 				AddThemeObject(MakeElement("Stroke"), "Stroke"),
 				MakeElement("Corner", 1)
 			}),
 			AddThemeObject(SetProps(MakeElement("Label", "By Wojtes_BMW", WindowConfig.HidePremium and 14 or 13), {
 				Size = UDim2.new(1, -30, 0, 13),
-				Position = WindowConfig.HidePremium and UDim2.new(0, 65.0, 0, 24.7) or UDim2.new(0, 65.0, 0, 15.600000000000001),
+				Position = WindowConfig.HidePremium and UDim2.new(0, 50, 0, 19) or UDim2.new(0, 50, 0, 12),
 				Font = Enum.Font.FredokaOne,
 				ClipsDescendants = true
 			}), "Text"),
@@ -595,7 +596,7 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
     Size = UDim2.new(1, -30, 2, 0),
     Position = UDim2.new(0, 25, 0, -24),
     Font = Enum.Font.FredokaOne,
-    TextSize = 26,
+    TextSize = 20,
     TextColor3 = Color3.fromRGB(255, 255, 255),
     RichText = true,
     Text = fullText
@@ -610,7 +611,7 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 	local MainWindow = AddThemeObject(SetChildren(SetProps(MakeElement("RoundFrame", Color3.fromRGB(255, 255, 255), 0, 10), {
 		Parent = Orion,
 		Position = UDim2.new(0.5, -307, 0.5, -172),
-		Size = UDim2.new(0, 799.5, 0, 447.2),
+		Size = UDim2.new(0, 615, 0, 344),
 		ClipsDescendants = true
 	}), {
 		SetChildren(SetProps(MakeElement("TFrame"), {
@@ -620,13 +621,13 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 			WindowName,
 			WindowTopBarLine,
 			AddThemeObject(SetChildren(SetProps(MakeElement("RoundFrame", Color3.fromRGB(255, 255, 255), 0, 7), {
-				Size = UDim2.new(0, 91.0, 0, 39.0),
+				Size = UDim2.new(0, 70, 0, 30),
 				Position = UDim2.new(1, -90, 0, 10)
 			}), {
 				AddThemeObject(MakeElement("Stroke"), "Stroke"),
 				AddThemeObject(SetProps(MakeElement("Frame"), {
 					Size = UDim2.new(0, 1, 1, 0),
-					Position = UDim2.new(0.5, 0.0, 0, 0.0)
+					Position = UDim2.new(0.5, 0, 0, 0)
 				}), "Stroke"), 
 				CloseBtn,
 				MinimizeBtn
@@ -639,8 +640,8 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 	if WindowConfig.ShowIcon then
 		WindowName.Position = UDim2.new(0, 50, 0, -24)
 		local WindowIcon = SetProps(MakeElement("Image", WindowConfig.Icon), {
-			Size = UDim2.new(0, 26.0, 0, 26.0),
-			Position = UDim2.new(0, 32.5, 0, 19.5)
+			Size = UDim2.new(0, 20, 0, 20),
+			Position = UDim2.new(0, 25, 0, 15)
 		})
 		WindowIcon.Parent = MainWindow.TopBar
 	end	
@@ -649,7 +650,7 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 
     local MobileReopenButton = SetChildren(SetProps(MakeElement("Button"), {
 		Parent = Orion,
-		Size = UDim2.new(0, 52.0, 0, 52.0),
+		Size = UDim2.new(0, 40, 0, 40),
 		Position = UDim2.new(0.5, -20, 0, 20),
 		BackgroundTransparency = 0.2,
 		BackgroundColor3 = OrionLib.Themes[OrionLib.SelectedTheme].Main,
@@ -657,8 +658,8 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 	}), {
 		AddThemeObject(SetProps(MakeElement("Image", WindowConfig.IntroToggleIcon or "http://www.roblox.com/asset/?id=8834748103"), {
 			AnchorPoint = Vector2.new(0.5, 0.5),
-			Position = UDim2.new(0.5, 0.0, 0.5, 0.0),
-			Size = UDim2.new(0.7, 0.0, 0.7, 0.0),
+			Position = UDim2.new(0.5, 0, 0.5, 0),
+			Size = UDim2.new(0.7, 0, 0.7, 0),
 		}), "Text"),
 		MakeElement("Corner", 1)
 	})
@@ -689,7 +690,7 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 
 	AddConnection(MinimizeBtn.MouseButton1Up, function()
 		if Minimized then
-			TweenService:Create(MainWindow, TweenInfo.new(0.5, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = UDim2.new(0, 799.5, 0, 447.2)}):Play()
+			TweenService:Create(MainWindow, TweenInfo.new(0.5, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = UDim2.new(0, 800, 0, 460)}):Play()
 			MinimizeBtn.Ico.Image = "rbxassetid://7743869899"
 			wait(.02)
 			MainWindow.ClipsDescendants = false
@@ -712,8 +713,8 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 		local LoadSequenceLogo = SetProps(MakeElement("Image", WindowConfig.IntroIcon), {
 			Parent = Orion,
 			AnchorPoint = Vector2.new(0.5, 0.5),
-			Position = UDim2.new(0.5, 0.0, 0.4, 0.0),
-			Size = UDim2.new(0, 36.4, 0, 36.4),
+			Position = UDim2.new(0.5, 0, 0.4, 0),
+			Size = UDim2.new(0, 28, 0, 28),
 			ImageColor3 = Color3.fromRGB(255, 255, 255),
 			ImageTransparency = 1
 		})
@@ -722,13 +723,13 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 			Parent = Orion,
 			Size = UDim2.new(1, 0, 1, 0),
 			AnchorPoint = Vector2.new(0.5, 0.5),
-			Position = UDim2.new(0.5, 24.7, 0.5, 0.0),
+			Position = UDim2.new(0.5, 19, 0.5, 0),
 			TextXAlignment = Enum.TextXAlignment.Center,
 			Font = Enum.Font.FredokaOne,
 			TextTransparency = 1
 		})
 
-		TweenService:Create(LoadSequenceLogo, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {ImageTransparency = 0, Position = UDim2.new(0.5, 0.0, 0.5, 0.0)}):Play()
+		TweenService:Create(LoadSequenceLogo, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {ImageTransparency = 0, Position = UDim2.new(0.5, 0, 0.5, 0)}):Play()
 		wait(0.8)
 		TweenService:Create(LoadSequenceLogo, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Position = UDim2.new(0.5, -(LoadSequenceText.TextBounds.X/2), 0.5, 0)}):Play()
 		wait(0.3)
@@ -757,14 +758,14 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 		}), {
 			AddThemeObject(SetProps(MakeElement("Image", TabConfig.Icon), {
 				AnchorPoint = Vector2.new(0, 0.5),
-				Size = UDim2.new(0, 23.400000000000002, 0, 23.400000000000002),
-				Position = UDim2.new(0, 13.0, 0.5, 0.0),
+				Size = UDim2.new(0, 18, 0, 18),
+				Position = UDim2.new(0, 10, 0.5, 0),
 				ImageTransparency = 0.4,
 				Name = "Ico"
 			}), "Text"),
 			AddThemeObject(SetProps(MakeElement("Label", TabConfig.Name, 14), {
 				Size = UDim2.new(1, -35, 1, 0),
-				Position = UDim2.new(0, 45.5, 0, 0.0),
+				Position = UDim2.new(0, 35, 0, 0),
 				Font = Enum.Font.FredokaOne,
 				TextTransparency = 0.4,
 				Name = "Title"
@@ -777,7 +778,7 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 
 		local Container = AddThemeObject(SetChildren(SetProps(MakeElement("ScrollFrame", Color3.fromRGB(255, 255, 255), 5), {
 			Size = UDim2.new(1, -150, 1, -50),
-			Position = UDim2.new(0, 195.0, 0, 65.0),
+			Position = UDim2.new(0, 150, 0, 50),
 			Parent = MainWindow,
 			Visible = false,
 			Name = "ItemContainer"
@@ -827,7 +828,7 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 				}), {
 					AddThemeObject(SetProps(MakeElement("Label", Text, 15), {
 						Size = UDim2.new(1, -12, 1, 0),
-						Position = UDim2.new(0, 15.600000000000001, 0, 0.0),
+						Position = UDim2.new(0, 12, 0, 0),
 						Font = Enum.Font.FredokaOne,
 						Name = "Content"
 					}), "Text"),
@@ -851,13 +852,13 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 				}), {
 					AddThemeObject(SetProps(MakeElement("Label", Text, 15), {
 						Size = UDim2.new(1, -12, 0, 14),
-						Position = UDim2.new(0, 15.600000000000001, 0, 13.0),
+						Position = UDim2.new(0, 12, 0, 10),
 						Font = Enum.Font.FredokaOne,
 						Name = "Title"
 					}), "Text"),
 					AddThemeObject(SetProps(MakeElement("Label", "", 13), {
 						Size = UDim2.new(1, -24, 0, 0),
-						Position = UDim2.new(0, 15.600000000000001, 0, 33.800000000000004),
+						Position = UDim2.new(0, 12, 0, 26),
 						Font = Enum.Font.FredokaOne,
 						Name = "Content",
 						TextWrapped = true
@@ -896,12 +897,12 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 				}), {
 					AddThemeObject(SetProps(MakeElement("Label", ButtonConfig.Name, 15), {
 						Size = UDim2.new(1, -12, 1, 0),
-						Position = UDim2.new(0, 15.600000000000001, 0, 0.0),
+						Position = UDim2.new(0, 12, 0, 0),
 						Font = Enum.Font.FredokaOne,
 						Name = "Content"
 					}), "Text"),
 					AddThemeObject(SetProps(MakeElement("Image", ButtonConfig.Icon), {
-						Size = UDim2.new(0, 26.0, 0, 26.0),
+						Size = UDim2.new(0, 20, 0, 20),
 						Position = UDim2.new(1, -30, 0, 7),
 					}), "TextDark"),
 					AddThemeObject(MakeElement("Stroke"), "Stroke"),
@@ -949,7 +950,7 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 				})
 
 				local ToggleBox = SetChildren(SetProps(MakeElement("RoundFrame", ToggleConfig.Color, 0, 4), {
-					Size = UDim2.new(0, 31.200000000000003, 0, 31.200000000000003),
+					Size = UDim2.new(0, 24, 0, 24),
 					Position = UDim2.new(1, -24, 0.5, 0),
 					AnchorPoint = Vector2.new(0.5, 0.5)
 				}), {
@@ -959,9 +960,9 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 						Transparency = 0.5
 					}),
 					SetProps(MakeElement("Image", "rbxassetid://3944680095"), {
-						Size = UDim2.new(0, 26.0, 0, 26.0),
+						Size = UDim2.new(0, 20, 0, 20),
 						AnchorPoint = Vector2.new(0.5, 0.5),
-						Position = UDim2.new(0.5, 0.0, 0.5, 0.0),
+						Position = UDim2.new(0.5, 0, 0.5, 0),
 						ImageColor3 = Color3.fromRGB(255, 255, 255),
 						Name = "Ico"
 					}),
@@ -973,7 +974,7 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 				}), {
 					AddThemeObject(SetProps(MakeElement("Label", ToggleConfig.Name, 15), {
 						Size = UDim2.new(1, -12, 1, 0),
-						Position = UDim2.new(0, 15.600000000000001, 0, 0.0),
+						Position = UDim2.new(0, 12, 0, 0),
 						Font = Enum.Font.FredokaOne,
 						Name = "Content"
 					}), "Text"),
@@ -986,7 +987,7 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 					Toggle.Value = Value
 					TweenService:Create(ToggleBox, TweenInfo.new(0.3, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {BackgroundColor3 = Toggle.Value and ToggleConfig.Color or OrionLib.Themes.Default.Divider}):Play()
 					TweenService:Create(ToggleBox.Stroke, TweenInfo.new(0.3, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Color = Toggle.Value and ToggleConfig.Color or OrionLib.Themes.Default.Stroke}):Play()
-					TweenService:Create(ToggleBox.Ico, TweenInfo.new(0.3, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {ImageTransparency = Toggle.Value and 0 or 1, Size = Toggle.Value and UDim2.new(0, 26.0, 0, 26.0) or UDim2.new(0, 10.4, 0, 10.4)}):Play()
+					TweenService:Create(ToggleBox.Ico, TweenInfo.new(0.3, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {ImageTransparency = Toggle.Value and 0 or 1, Size = Toggle.Value and UDim2.new(0, 20, 0, 20) or UDim2.new(0, 8, 0, 8)}):Play()
 					ToggleConfig.Callback(Toggle.Value)
 				end    
 
@@ -1038,7 +1039,7 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 				}), {
 					AddThemeObject(SetProps(MakeElement("Label", "value", 13), {
 						Size = UDim2.new(1, -12, 0, 14),
-						Position = UDim2.new(0, 15.600000000000001, 0, 7.800000000000001),
+						Position = UDim2.new(0, 12, 0, 6),
 						Font = Enum.Font.FredokaOne,
 						Name = "Value",
 						TextTransparency = 0
@@ -1047,7 +1048,7 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 
 				local SliderBar = SetChildren(SetProps(MakeElement("RoundFrame", SliderConfig.Color, 0, 5), {
 					Size = UDim2.new(1, -24, 0, 26),
-					Position = UDim2.new(0, 15.600000000000001, 0, 39.0),
+					Position = UDim2.new(0, 12, 0, 30),
 					BackgroundTransparency = 0.2
 				}), {
 					SetProps(MakeElement("Stroke"), {
@@ -1055,7 +1056,7 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 					}),
 					AddThemeObject(SetProps(MakeElement("Label", "value", 13), {
 						Size = UDim2.new(1, -12, 0, 14),
-						Position = UDim2.new(0, 15.600000000000001, 0, 7.800000000000001),
+						Position = UDim2.new(0, 12, 0, 6),
 						Font = Enum.Font.FredokaOne,
 						Name = "Value",
 						TextTransparency = 0.8
@@ -1069,7 +1070,7 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 				}), {
 					AddThemeObject(SetProps(MakeElement("Label", SliderConfig.Name, 15), {
 						Size = UDim2.new(1, -12, 0, 14),
-						Position = UDim2.new(0, 15.600000000000001, 0, 13.0),
+						Position = UDim2.new(0, 12, 0, 10),
 						Font = Enum.Font.FredokaOne,
 						Name = "Content"
 					}), "Text"),
@@ -1132,7 +1133,7 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 					DropdownList
 				}), {
 					Parent = ItemParent,
-					Position = UDim2.new(0, 0.0, 0, 49.4),
+					Position = UDim2.new(0, 0, 0, 38),
 					Size = UDim2.new(1, 0, 1, -38),
 					ClipsDescendants = true
 				}), "Divider")
@@ -1150,12 +1151,12 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 					SetProps(SetChildren(MakeElement("TFrame"), {
 						AddThemeObject(SetProps(MakeElement("Label", DropdownConfig.Name, 15), {
 							Size = UDim2.new(1, -12, 1, 0),
-							Position = UDim2.new(0, 15.600000000000001, 0, 0.0),
+							Position = UDim2.new(0, 12, 0, 0),
 							Font = Enum.Font.FredokaOne,
 							Name = "Content"
 						}), "Text"),
 						AddThemeObject(SetProps(MakeElement("Image", "rbxassetid://7072706796"), {
-							Size = UDim2.new(0, 26.0, 0, 26.0),
+							Size = UDim2.new(0, 20, 0, 20),
 							AnchorPoint = Vector2.new(0, 0.5),
 							Position = UDim2.new(1, -30, 0.5, 0),
 							ImageColor3 = Color3.fromRGB(240, 240, 240),
@@ -1192,7 +1193,7 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 						local OptionBtn = AddThemeObject(SetProps(SetChildren(MakeElement("Button", Color3.fromRGB(40, 40, 40)), {
 							MakeElement("Corner", 0, 6),
 							AddThemeObject(SetProps(MakeElement("Label", Option, 13, 0.4), {
-								Position = UDim2.new(0, 10.4, 0, 0.0),
+								Position = UDim2.new(0, 8, 0, 0),
 								Size = UDim2.new(1, -8, 1, 0),
 								Name = "Title"
 							}), "Text")
@@ -1281,7 +1282,7 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 				})
 
 				local BindBox = AddThemeObject(SetChildren(SetProps(MakeElement("RoundFrame", Color3.fromRGB(255, 255, 255), 0, 4), {
-					Size = UDim2.new(0, 31.200000000000003, 0, 31.200000000000003),
+					Size = UDim2.new(0, 24, 0, 24),
 					Position = UDim2.new(1, -12, 0.5, 0),
 					AnchorPoint = Vector2.new(1, 0.5)
 				}), {
@@ -1300,7 +1301,7 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 				}), {
 					AddThemeObject(SetProps(MakeElement("Label", BindConfig.Name, 15), {
 						Size = UDim2.new(1, -12, 1, 0),
-						Position = UDim2.new(0, 15.600000000000001, 0, 0.0),
+						Position = UDim2.new(0, 12, 0, 0),
 						Font = Enum.Font.FredokaOne,
 						Name = "Content"
 					}), "Text"),
@@ -1405,12 +1406,12 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 					PlaceholderText = "Input",
 					Font = Enum.Font.FredokaOne,
 					TextXAlignment = Enum.TextXAlignment.Center,
-					TextSize = 20,
+					TextSize = 18,
 					ClearTextOnFocus = false
 				}), "Text")
 
 				local TextContainer = AddThemeObject(SetChildren(SetProps(MakeElement("RoundFrame", Color3.fromRGB(255, 255, 255), 0, 4), {
-					Size = UDim2.new(0, 31.200000000000003, 0, 31.200000000000003),
+					Size = UDim2.new(0, 24, 0, 24),
 					Position = UDim2.new(1, -12, 0.5, 0),
 					AnchorPoint = Vector2.new(1, 0.5)
 				}), {
@@ -1425,7 +1426,7 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 				}), {
 					AddThemeObject(SetProps(MakeElement("Label", TextboxConfig.Name, 15), {
 						Size = UDim2.new(1, -12, 1, 0),
-						Position = UDim2.new(0, 15.600000000000001, 0, 0.0),
+						Position = UDim2.new(0, 12, 0, 0),
 						Font = Enum.Font.FredokaOne,
 						Name = "Content"
 					}), "Text"),
@@ -1476,7 +1477,7 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 				local Colorpicker = {Value = ColorpickerConfig.Default, Toggled = false, Type = "Colorpicker", Save = ColorpickerConfig.Save}
 
 				local ColorSelection = Create("ImageLabel", {
-					Size = UDim2.new(0, 23.400000000000002, 0, 23.400000000000002),
+					Size = UDim2.new(0, 18, 0, 18),
 					Position = UDim2.new(select(3, Color3.toHSV(Colorpicker.Value))),
 					ScaleType = Enum.ScaleType.Fit,
 					AnchorPoint = Vector2.new(0.5, 0.5),
@@ -1485,7 +1486,7 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 				})
 
 				local HueSelection = Create("ImageLabel", {
-					Size = UDim2.new(0, 23.400000000000002, 0, 23.400000000000002),
+					Size = UDim2.new(0, 18, 0, 18),
 					Position = UDim2.new(0.5, 0, 1 - select(1, Color3.toHSV(Colorpicker.Value))),
 					ScaleType = Enum.ScaleType.Fit,
 					AnchorPoint = Vector2.new(0.5, 0.5),
@@ -1513,7 +1514,7 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 				})
 
 				local ColorpickerContainer = Create("Frame", {
-					Position = UDim2.new(0, 0.0, 0, 41.6),
+					Position = UDim2.new(0, 0, 0, 32),
 					Size = UDim2.new(1, 0, 1, -32),
 					BackgroundTransparency = 1,
 					ClipsDescendants = true
@@ -1533,7 +1534,7 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 				})
 
 				local ColorpickerBox = AddThemeObject(SetChildren(SetProps(MakeElement("RoundFrame", Color3.fromRGB(255, 255, 255), 0, 4), {
-					Size = UDim2.new(0, 31.200000000000003, 0, 31.200000000000003),
+					Size = UDim2.new(0, 24, 0, 24),
 					Position = UDim2.new(1, -12, 0.5, 0),
 					AnchorPoint = Vector2.new(1, 0.5)
 				}), {
@@ -1547,7 +1548,7 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 					SetProps(SetChildren(MakeElement("TFrame"), {
 						AddThemeObject(SetProps(MakeElement("Label", ColorpickerConfig.Name, 15), {
 							Size = UDim2.new(1, -12, 1, 0),
-							Position = UDim2.new(0, 15.600000000000001, 0, 0.0),
+							Position = UDim2.new(0, 12, 0, 0),
 							Font = Enum.Font.FredokaOne,
 							Name = "Content"
 						}), "Text"),
@@ -1663,13 +1664,13 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 			}), {
 				AddThemeObject(SetProps(MakeElement("Label", SectionConfig.Name, 14), {
 					Size = UDim2.new(1, -12, 0, 16),
-					Position = UDim2.new(0, 0.0, 0, 3.9000000000000004),
+					Position = UDim2.new(0, 0, 0, 3),
 					Font = Enum.Font.FredokaOne
 				}), "TextDark"),
 				SetChildren(SetProps(MakeElement("TFrame"), {
 					AnchorPoint = Vector2.new(0, 0),
 					Size = UDim2.new(1, 0, 1, -24),
-					Position = UDim2.new(0, 0.0, 0, 29.900000000000002),
+					Position = UDim2.new(0, 0, 0, 23),
 					Name = "Holder"
 				}), {
 					MakeElement("List", 0, 6)
@@ -1703,27 +1704,27 @@ local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 				Parent = ItemParent
 			}), {
 				AddThemeObject(SetProps(MakeElement("Image", "rbxassetid://3610239960"), {
-					Size = UDim2.new(0, 23.400000000000002, 0, 23.400000000000002),
-					Position = UDim2.new(0, 19.5, 0, 19.5),
+					Size = UDim2.new(0, 18, 0, 18),
+					Position = UDim2.new(0, 15, 0, 15),
 					ImageTransparency = 0.4
 				}), "Text"),
 				AddThemeObject(SetProps(MakeElement("Label", "Unauthorised Access", 14), {
 					Size = UDim2.new(1, -38, 0, 14),
-					Position = UDim2.new(0, 49.4, 0, 23.400000000000002),
+					Position = UDim2.new(0, 38, 0, 18),
 					TextTransparency = 0.4
 				}), "Text"),
 				AddThemeObject(SetProps(MakeElement("Image", "rbxassetid://4483345875"), {
-					Size = UDim2.new(0, 72.8, 0, 72.8),
-					Position = UDim2.new(0, 109.2, 0, 143.0),
+					Size = UDim2.new(0, 56, 0, 56),
+					Position = UDim2.new(0, 84, 0, 110),
 				}), "Text"),
 				AddThemeObject(SetProps(MakeElement("Label", "Premium Features", 14), {
 					Size = UDim2.new(1, -150, 0, 14),
-					Position = UDim2.new(0, 195.0, 0, 145.6),
+					Position = UDim2.new(0, 150, 0, 112),
 					Font = Enum.Font.FredokaOne
 				}), "Text"),
 				AddThemeObject(SetProps(MakeElement("Label", "This part of the script is locked to Sirius Premium users. Purchase Premium in the Discord server (discord.gg/sirius)", 12), {
 					Size = UDim2.new(1, -200, 0, 14),
-					Position = UDim2.new(0, 195.0, 0, 179.4),
+					Position = UDim2.new(0, 150, 0, 138),
 					TextWrapped = true,
 					TextTransparency = 0.4
 				}), "Text")
@@ -1839,8 +1840,8 @@ function OrionLib:MakeNotifi(Configs)
     Font = Configs_HUB.Text_Font,
     BackgroundTransparency = 1,
     Text = Title,
-    TextSize = 26,
-    Position = UDim2.new(0, 26.0, 0, 6.5),
+    TextSize = 20,
+    Position = UDim2.new(0, 20, 0, 5),
     TextXAlignment = "Left",
     TextColor3 = Configs_HUB.Cor_Text
   })
@@ -1848,18 +1849,18 @@ function OrionLib:MakeNotifi(Configs)
   local TextButton = Create("TextButton", Frame2, {
     Text = "X",
     Font = Configs_HUB.Text_Font,
-    TextSize = 26,
+    TextSize = 20,
     BackgroundTransparency = 1,
     TextColor3 = Color3.fromRGB(200, 200, 200),
     Position = UDim2.new(1, -5, 0, 5),
     AnchorPoint = Vector2.new(1, 0),
-    Size = UDim2.new(0, 32.5, 0, 32.5)
+    Size = UDim2.new(0, 25, 0, 25)
   })
   
   local TextLabel = Create("TextLabel", Frame2, {
     Size = UDim2.new(1, -30, 0, 0),
     Position = UDim2.new(0, 20, 0, TextButton.Size.Y.Offset + 10),
-    TextSize = 21,
+    TextSize = 19,
     TextColor3 = Configs_HUB.Cor_DarkText,
     TextXAlignment = "Left",
     TextYAlignment = "Top",
@@ -1874,16 +1875,16 @@ function OrionLib:MakeNotifi(Configs)
   local FrameSize = Create("Frame", Frame2, {
     Size = UDim2.new(1, 0, 0, 2),
     BackgroundColor3 = Configs_HUB.Cor_Stroke,
-    Position = UDim2.new(0, 2.6, 0, 39.0),
+    Position = UDim2.new(0, 2, 0, 30),
     BorderSizePixel = 0
   })Corner(FrameSize)Create("Frame", Frame2, {
-    Size = UDim2.new(0, 0.0, 0, 6.5),
+    Size = UDim2.new(0, 0, 0, 5),
     Position = UDim2.new(0, 0, 1, 5),
     BackgroundTransparency = 1
   })
   
   task.spawn(function()
-    CreateTween(FrameSize, "Size", UDim2.new(0, 0.0, 0, 2.6), timewait, true)
+    CreateTween(FrameSize, "Size", UDim2.new(0, 0, 0, 2), timewait, true)
   end)
   
   TextButton.MouseButton1Click:Connect(function()
