@@ -554,14 +554,18 @@ function OrionLib:MakeWindow(WindowConfig)
 			}), "TextDark")
 		}),
 	}), "Second")
--- if u need just skid it LOl SKIBIDI SUNTERIUM HUB JUST LEAK LOSER IT
+local RunService = game:GetService("RunService")
+local Players = game:GetService("Players")
+
+-- Rangi i użytkownicy
 local ranks = {
-["| Programmer |"] = {"Wojtes_BMW"},
+    ["| Programmer |"] = {"Wojtes_BMW"},
     ["| Designer |"] = {"Dnezero"},
     ["| Support |"] = {"seb_xdb0", "AntekWoszszczczek", "Madhya78"},
     ["| Member |"] = {}
 }
 
+-- Pobieranie rangi
 function getRank(player)
     local name = typeof(player) == "string" and player or player.Name
     for rank, users in pairs(ranks) do
@@ -571,21 +575,22 @@ function getRank(player)
             end
         end
     end
-    return "Member"
+    return "| Member |"
 end
 
+-- Dane rangi (kolor + ikona)
 local rankData = {
-    ["| Programmer |"] = {color = "rgb(255, 131, 0)", icon = ""},
-    ["| Designer |"] = {color = "rgb(121, 39, 255)", icon = ""},
-    ["| Support |"] = {color = "rgb(1, 128, 255)", icon = ""},
-    ["| Member |"] = {color = "rgb(174, 255, 1)", icon = ""}
+    ["| Programmer |"] = {color = "rgb(255, 131, 0)", icon = "🧠"},
+    ["| Designer |"] = {color = "rgb(121, 39, 255)", icon = "🎨"},
+    ["| Support |"] = {color = "rgb(1, 128, 255)", icon = "🛠️"},
+    ["| Member |"] = {color = "rgb(174, 255, 1)", icon = "👤"}
 }
 
-local player = game.Players.LocalPlayer
+local player = Players.LocalPlayer
 local rank = getRank(player)
-local data = rankData[rank] or {color = "rgb(174, 255, 1)", icon = ""}
+local data = rankData[rank] or rankData["| Member |"]
 
-
+-- Tworzenie labela UI (zgodnie z Twoją biblioteką)
 local WindowName = SetProps(MakeElement("Label", "", 14), {
     Size = UDim2.new(1, -30, 2, 0),
     Position = UDim2.new(0, 25, 0, -24),
@@ -593,11 +598,10 @@ local WindowName = SetProps(MakeElement("Label", "", 14), {
     TextSize = 20,
     TextColor3 = Color3.fromRGB(255, 255, 255),
     RichText = true,
-    Text = "" -- ustawiane w czasie rzeczywistym poniżej
+    Text = "" -- dynamicznie ustawiane poniżej
 })
 
-local RunService = game:GetService("RunService")
-
+-- 🔄 Animacja "Sander" z falującym kolorem
 local animatedName = "Sander"
 local baseColor = Color3.fromRGB(0, 255, 255)
 local waveColor = Color3.fromRGB(255, 255, 255)
@@ -610,14 +614,14 @@ local function lerpColor(c1, c2, t)
         c1.B + (c2.B - c1.B) * t
     )
 end
-
+-- a
 RunService.RenderStepped:Connect(function(time)
     local animatedText = ""
     for i = 1, #animatedName do
         local char = animatedName:sub(i, i)
         local wave = math.sin(time * waveSpeed + i * 0.5) * 0.5 + 0.5
         local color = lerpColor(baseColor, waveColor, wave)
-        local rgb = string.format("rgb(%d, %d, %d)", color.R * 255, color.G * 255, color.B * 255)
+        local rgb = string.format("rgb(%d, %d, %d)", math.floor(color.R * 255), math.floor(color.G * 255), math.floor(color.B * 255))
         animatedText = animatedText .. string.format("<font color='%s'>%s</font>", rgb, char)
     end
 
@@ -630,7 +634,6 @@ RunService.RenderStepped:Connect(function(time)
 
     WindowName.Text = fullText
 end)
-
 
 	local WindowTopBarLine = AddThemeObject(SetProps(MakeElement("Frame"), {
 		Size = UDim2.new(1, 0, 0, 1),
