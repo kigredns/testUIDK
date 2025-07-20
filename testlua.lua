@@ -555,8 +555,11 @@ function OrionLib:MakeWindow(WindowConfig)
 		}),
 	}), "Second")
 -- if u need just skid it LOl SKIBIDI SUNTERIUM HUB JUST LEAK LOSER IT
+local RunService = game:GetService("RunService")
+local Players = game:GetService("Players")
+
 local ranks = {
-["| Programmer |"] = {"Wojtes_BMW"},
+    ["| Programmer |"] = {"Wojtes_BMW"},
     ["| Designer |"] = {"Dnezero"},
     ["| Support |"] = {"seb_xdb0", "AntekWoszszczczek", "Madhya78"},
     ["| Member |"] = {}
@@ -571,26 +574,63 @@ function getRank(player)
             end
         end
     end
-    return "Member"
+    return "| Member |"
 end
 
 local rankData = {
-    ["| Programmer |"] = {color = "rgb(255, 131, 0)", icon = ""},
-    ["| Designer |"] = {color = "rgb(121, 39, 255)", icon = ""},
-    ["| Support |"] = {color = "rgb(1, 128, 255)", icon = ""},
-    ["| Member |"] = {color = "rgb(174, 255, 1)", icon = ""}
+    ["| Programmer |"] = {color = "rgb(255, 131, 0)", icon = "🧠"},
+    ["| Designer |"] = {color = "rgb(121, 39, 255)", icon = "🎨"},
+    ["| Support |"] = {color = "rgb(1, 128, 255)", icon = "🛠️"},
+    ["| Member |"] = {color = "rgb(174, 255, 1)", icon = "👤"}
 }
 
-local player = game.Players.LocalPlayer
+local player = Players.LocalPlayer
 local rank = getRank(player)
-local data = rankData[rank] or {color = "rgb(174, 255, 1)", icon = ""}
+local data = rankData[rank] or rankData["| Member |"]
 
-local fullText = "<font color='rgb(0, 255, 255)'>Sander</font> " ..
-                 "<font color='rgb(255, 255, 255)'>XY「 BrookHaven 」 • </font>" ..
-                 "<font color='rgb(24, 255, 185)'>Spring</font> " ..
-                 "<font color='rgb(255, 255, 255)'> • </font>" ..
-                 string.format("<font color='%s'>%s %s </font>", data.color, data.icon, rank)
+local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
+    Size = UDim2.new(1, -30, 2, 0),
+    Position = UDim2.new(0, 25, 0, -24),
+    Font = Enum.Font.FredokaOne,
+    TextSize = 20,
+    TextColor3 = Color3.fromRGB(255, 255, 255),
+    RichText = true,
+    Text = "..." 
+})
 
+
+local animatedName = "Sander"
+local baseColor = Color3.fromRGB(0, 255, 255)
+local waveColor = Color3.fromRGB(255, 255, 255)
+local waveSpeed = 2
+
+local function lerpColor(c1, c2, t)
+    return Color3.new(
+        c1.R + (c2.R - c1.R) * t,
+        c1.G + (c2.G - c1.G) * t,
+        c1.B + (c2.B - c1.B) * t
+    )
+end
+
+RunService.RenderStepped:Connect(function(time)
+    local animatedText = ""
+    for i = 1, #animatedName do
+        local char = animatedName:sub(i, i)
+        local wave = math.sin(time * waveSpeed + i * 0.5) * 0.5 + 0.5
+        local color = lerpColor(baseColor, waveColor, wave)
+        local rgb = string.format("rgb(%d, %d, %d)", color.R * 255, color.G * 255, color.B * 255)
+        animatedText = animatedText .. string.format("<font color='%s'>%s</font>", rgb, char)
+    end
+
+    local fullText =
+        animatedText ..
+        "<font color='rgb(255, 255, 255)'> XY「 BrookHaven 」 • </font>" ..
+        "<font color='rgb(24, 255, 185)'>Spring</font> " ..
+        "<font color='rgb(255, 255, 255)'> • </font>" ..
+        string.format("<font color='%s'>%s %s</font>", data.color, data.icon, rank)
+
+    WindowName.Text = fullText
+end)
 local WindowName = SetProps(MakeElement("Label", WindowConfig.Name, 14), {
     Size = UDim2.new(1, -30, 2, 0),
     Position = UDim2.new(0, 25, 0, -24),
