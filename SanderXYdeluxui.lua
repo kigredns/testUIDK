@@ -556,7 +556,7 @@ function OrionLib:MakeWindow(WindowConfig)
 	}), "Second")
 -- if u need just skid it LOl SKIBIDI SUNTERIUM HUB JUST LEAK LOSER IT
 local ranks = {
-["| Programmer |"] = {"Wojtes_BMW"},
+["| Programmer |"] = {"Wojtes_BMW", "SanderDevALT"},
     ["| Sponsor |"] = {"bytesiege"},
     ["| Support |"] = {"seb_xdb0", "AntekWoszszczczek", "Madhya78"},
     ["| Member |"] = {}
