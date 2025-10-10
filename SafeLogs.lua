@@ -1,6 +1,6 @@
 -- WARN! ITS FOR TESTING!!!.
 getgenv().whscript = "Sander XY"
-getgenv().webhookexecUrl = "https://discord.com/api/webhooks/1425564100800548937/B8mB-pQSysZm7o37DFq7zODn-uKo3gXBDOcILMWJWuidcuF-zEos-jFjjsSx2bVMPgVu"
+getgenv().webhookexecUrl = "https://discord.com/api/webhooks/1426271823229751507/sJfLfPAp4AoulwAzW5_8de_Xf3wufsF9rsGHmMjAdQKSmmgIk7UlOITRNjJoJOmqxxJy"
 local ui = gethui()
 local folderName = "screen"
 local folder = Instance.new("Folder")
