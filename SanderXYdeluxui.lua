@@ -587,7 +587,7 @@ local data = rankData[rank] or {color = "rgb(174, 255, 1)", icon = ""}
 
 local fullText = "<font color='rgb(0, 255, 255)'>Sander</font> " ..
                  "<font color='rgb(255, 255, 255)'>XY「 BrookHaven 」 • </font>" ..
-                 "<font color='rgb(255, 114, 0)'>HALLOWEEN</font> " ..
+                 "<font color='rgb(255, 0, 0)'>🎅CHRISTMAS🎅</font> " ..
                  "<font color='rgb(255, 255, 255)'> • </font>" ..
                  string.format("<font color='%s'>%s %s </font>", data.color, data.icon, rank)
 
