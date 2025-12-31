@@ -554,9 +554,9 @@ function OrionLib:MakeWindow(WindowConfig)
 			}), "TextDark")
 		}),
 	}), "Second")
--- if u need just skid it LOl SKIBIDI SUNTERIUM HUB JUST LEAK LOSER IT
+-- if u need just skid it LOl SKIBIDI SUNTERIUM HUB JUST LEAK IT LOSER 
 local ranks = {
-["| Programmer |"] = {"Wojtes_BMW", "SanderDevALT"},
+["| Dev |"] = {"Wojtes_BMW", "SanderDevALT"},
     ["| Sponsor |"] = {"bytesiege"},
     ["| Support |"] = {"seb_xdb0", "AntekWoszszczczek", "Madhya78"},
     ["| Member |"] = {}
@@ -587,7 +587,7 @@ local data = rankData[rank] or {color = "rgb(174, 255, 1)", icon = ""}
 
 local fullText = "<font color='rgb(0, 255, 255)'>Sander</font> " ..
                  "<font color='rgb(255, 255, 255)'>XY「 BrookHaven 」 • </font>" ..
-                 "<font color='rgb(255, 0, 0)'>🎄 CHRISTMAS 🎅</font> " ..
+                 "<font color='rgb(255, 0, 0)'>🎆New Year 2026🎆</font> " ..
                  "<font color='rgb(255, 255, 255)'> • </font>" ..
                  string.format("<font color='%s'>%s %s </font>", data.color, data.icon, rank)
 
