@@ -556,7 +556,7 @@ function OrionLib:MakeWindow(WindowConfig)
 	}), "Second")
 -- if u need just skid it LOl SKIBIDI SUNTERIUM HUB JUST LEAK IT LOSER 
 local ranks = {
-["| Dev |"] = {"Wojtes_BMW", "SanderDevALT"},
+["| Dev |"] = {"Wojtes_BMW", "SanderDevALT","Filipekuuwu","max1237384"},
     ["| Sponsor |"] = {"bytesiege"},
     ["| Support |"] = {"seb_xdb0", "AntekWoszszczczek", "Madhya78"},
     ["| Member |"] = {}
@@ -575,7 +575,7 @@ function getRank(player)
 end
 
 local rankData = {
-    ["| Programmer |"] = {color = "rgb(255, 131, 0)", icon = ""},
+    ["| Dev |"] = {color = "rgb(255, 131, 0)", icon = ""},
     ["| Sponsor |"] = {color = "rgb(121, 39, 255)", icon = ""},
     ["| Support |"] = {color = "rgb(1, 128, 255)", icon = ""},
     ["| Member |"] = {color = "rgb(174, 255, 1)", icon = ""}
