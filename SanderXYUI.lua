@@ -508,11 +508,11 @@ function Library:MakeWindow(WindowConfig)
 	Library.Folder = WindowConfig.ConfigFolder
 	Library.SaveCfg = WindowConfig.SaveConfig
 
-	if WindowConfig.SaveConfig then
-		if not isfolder(WindowConfig.ConfigFolder) then
-			makefolder(WindowConfig.ConfigFolder)
-		end	
-	end
+--	if WindowConfig.SaveConfig then
+	--	if not isfolder(WindowConfig.ConfigFolder) then
+	--		makefolder(WindowConfig.ConfigFolder)
+	--	end	
+	--end
 
 	local TabHolder = AddThemeObject(SetChildren(SetProps(MakeElement("ScrollFrame", Color3.fromRGB(255, 255, 255), 4), {
 		Size = UDim2.new(1, 0, 1, -50)
